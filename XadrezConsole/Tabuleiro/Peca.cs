@@ -1,29 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace tabuleiro
 {
-    internal class Peca
+    class Peca
     {
-        public Posicao Posicao { get; set; }
-        public Cor Cor { get; protected set; }
-        public int QuantidadeDeMovimento { get; protected set; }
-        public Tabuleiro Tab { get; protected set; }
+        public Posicao posicao { get; set; }
+        public Cor cor { get; protected set; }
+        public int qteMovimentos { get; protected set; }
+        public Tabuleiro tab { get; protected set; }
 
-        public Peca()
+        public Peca(Tabuleiro tab, Cor cor)
         {
-
-        }
-
-        public Peca(Posicao posicao, Cor cor, Tabuleiro tab)
-        {
-            Posicao = posicao;
-            Cor = cor;
-            Tab = tab;
-            QuantidadeDeMovimento = 0;
+            this.posicao = null;
+            this.cor = cor;
+            this.tab = tab;
+            this.qteMovimentos = 0;
         }
     }
 
