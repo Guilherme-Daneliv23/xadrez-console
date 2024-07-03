@@ -9,7 +9,7 @@ namespace XadrezConsole
     {
         static void Main(string[] args)
         {
-            try
+            /*try
             {
                 Tabuleiro tab = new Tabuleiro(8, 8);
 
@@ -22,9 +22,12 @@ namespace XadrezConsole
             catch (TabuleiroException ex)
             {
                 Console.WriteLine(ex);
-            }
-            
-            
+            }*/
+
+            PosicaoXadrez pos = new PosicaoXadrez('a', 1);
+            Console.WriteLine(pos.toPosicao());
+
+
         }
     }
 }
