@@ -18,11 +18,10 @@ namespace XadrezConsole
                     try
                     {
                         Console.Clear();
-                        Tela.imprimirTabuleiro(part.tab);
-                        Console.WriteLine();
-                        Console.WriteLine("TURN: " + part.turno);
-                        Console.WriteLine();
-                        Console.WriteLine("Wait for player: " + part.jogadorAtual);
+
+
+
+                        Tela.imprimirPartida(part);
 
 
                         Console.WriteLine();
