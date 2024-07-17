@@ -139,7 +139,7 @@ namespace xadrez
             if (estaEmXeque(jogadorAtual))
             {
                 desfazMovimento(origem, destino, pecaCapturada);
-                throw new TabuleiroException("Você não pode se colocar em xeque!");
+                throw new TabuleiroException("You can't xeque yourself!");
             }
 
             Peca p = tab.peca(destino);
@@ -192,15 +192,15 @@ namespace xadrez
         {
             if (tab.peca(pos) == null)
             {
-                throw new TabuleiroException("Não existe peça na posição de origem escolhida!");
+                throw new TabuleiroException("Don't exist a piece on the origin position chosen!");
             }
             if (jogadorAtual != tab.peca(pos).cor)
             {
-                throw new TabuleiroException("A peça de origem escolhida não é sua!");
+                throw new TabuleiroException("The piece of origin chosen doesn't is your!");
             }
             if (!tab.peca(pos).existeMovimentosPossiveis())
             {
-                throw new TabuleiroException("Não há movimentos possíveis para a peça de origem escolhida!");
+                throw new TabuleiroException("Don't exist possible moviments to the origin piece chosen!");
             }
         }
 
@@ -208,7 +208,7 @@ namespace xadrez
         {
             if (!tab.peca(origem).movimentoPossivel(destino))
             {
-                throw new TabuleiroException("Posição de destino inválida!");
+                throw new TabuleiroException("Invalid Destiny position!");
             }
         }
 
@@ -280,7 +280,7 @@ namespace xadrez
             Peca R = rei(cor);
             if (R == null)
             {
-                throw new TabuleiroException("Não tem rei da cor " + cor + " no tabuleiro!");
+                throw new TabuleiroException("Haven't a king of color " + cor + " on the table!");
             }
             foreach (Peca x in pecasEmJogo(adversaria(cor)))
             {

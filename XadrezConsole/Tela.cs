@@ -8,15 +8,29 @@ namespace XadrezConsole
     {   
         public static void imprimirPartida(PartidaDeXadrez partida)
         {
+            Console.WriteLine("XADREZ CONSOLE!");
+            Console.WriteLine();
             imprimirTabuleiro(partida.tab);
             Console.WriteLine();
             imprimirPecasCapturadas(partida);
             Console.WriteLine();
-            Console.WriteLine("Turno: " + partida.turno);
+            Console.WriteLine("Turn: " + partida.turno);
 
             if(!partida.terminada)
             {
-                Console.WriteLine("Aguardando jogada: " + partida.jogadorAtual);
+                Console.Write("Waiting for move: ");
+                if (partida.jogadorAtual == Cor.Preta)
+                {
+                    ConsoleColor aux = Console.ForegroundColor;
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine(partida.jogadorAtual);
+                    Console.ForegroundColor = aux;
+                }
+                else
+                {
+                    Console.WriteLine(partida.jogadorAtual);
+                }
+                
                 if (partida.xeque)
                 {
                     Console.WriteLine("XEQUE!!!");
@@ -25,20 +39,20 @@ namespace XadrezConsole
             else
             {
                 Console.WriteLine("XEQUEMATE!");
-                Console.WriteLine("Vencedor: " + partida.jogadorAtual);
+                Console.WriteLine("Winner: " + partida.jogadorAtual);
             }
             
         }
 
         public static void imprimirPecasCapturadas(PartidaDeXadrez partida)
         {
-            Console.WriteLine("Pecas capturadas: ");
-            Console.Write("Brancas: ");
+            Console.WriteLine("Captured pieces: ");
+            Console.Write("White: ");
             imprimirConjunto(partida.pecasCapturadas(Cor.Branca));
             Console.WriteLine();
             ConsoleColor aux = Console.ForegroundColor;
             Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.Write("Pretas: ");
+            Console.Write("Black: ");
             imprimirConjunto(partida.pecasCapturadas(Cor.Preta));
             Console.ForegroundColor = aux;
             Console.WriteLine();
@@ -57,16 +71,22 @@ namespace XadrezConsole
 
         public static void imprimirTabuleiro(Tabuleiro Tab)
         {
+            ConsoleColor aux = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.DarkGray;
             for (int i = 0; i < Tab.linhas; i++)
             {
                 Console.Write(8 - i + " ");
                 for (int j = 0; j < Tab.colunas; j++)
-                {   
-                    imprimePeca(Tab.peca(i, j));
+                {
+                    Console.ForegroundColor = aux;
+                    imprimePeca(Tab.peca(i, j));  
                 }
                 Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.DarkGray;
             }
+            
             Console.WriteLine("  a b c d e f g h");
+            Console.ForegroundColor = aux;
         }
 
         public static void imprimirTabuleiro(Tabuleiro Tab, bool[,] posicoesPossiveis)
