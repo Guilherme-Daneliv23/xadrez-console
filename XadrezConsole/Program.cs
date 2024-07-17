@@ -59,9 +59,6 @@ namespace XadrezConsole
                 Console.WriteLine(ex);
             }
 
-            /*PosicaoXadrez pos = new PosicaoXadrez('a', 1);
-            Console.WriteLine(pos.toPosicao());*/
-
 
         }
     }
